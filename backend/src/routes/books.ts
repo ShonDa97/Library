@@ -4,9 +4,13 @@ import { checkBook } from "../utils/validation";
 
 const router = express.Router();
 
-router.get("/books", (_req, res) => {
-  const books = bookService.getBooks();
-  res.send(books);
+router.get("/books", async (_req, res) => {
+  try {
+    const books = (await bookService.getBooks()).Items;
+    res.send(books);
+  } catch (error: any) {
+    res.status(400).send(error.message);
+  }
 });
 
 router.post("/books/add", async (req, res) => {
