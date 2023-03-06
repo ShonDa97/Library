@@ -24,7 +24,8 @@ export const getUsers = async () => {
   }
   const users = Items.map((item: any) => {
     const { pk, ...newItem } = item;
-    return { id: pk, ...newItem };
+    return { id: pk.substring(prefixUsers.length), ...newItem };
+    0;
   });
   return users;
 };

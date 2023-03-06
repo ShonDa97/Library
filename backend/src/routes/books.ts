@@ -31,6 +31,7 @@ router.post("/books/lend/user/:userid", async (req, res) => {
     const bookToLend = req.body;
     await bookService.editBook(bookToLend);
     await lendBook(bookToLend, userid);
+    res.send("libro prestado");
   } catch (error: any) {
     res.status(400).send(error.message);
   }

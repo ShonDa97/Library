@@ -8,7 +8,7 @@ const parseId = (idFromRequest: any): string => {
 };
 const parseName = (nameFromRequest: any): string => {
   if (!isString(nameFromRequest)) {
-    throw new Error("Incorrect or missing author");
+    throw new Error("Incorrect or missing userName");
   }
   return nameFromRequest;
 };
@@ -47,7 +47,7 @@ const isPhone = (string: string): boolean => {
 
 export const checkUser = (object: any): User => {
   const newUser: User = {
-    userName: parseName(object.name),
+    userName: parseName(object.userName),
     document: parseDocument(object.document),
     address: parseAddress(object.address),
     phone: parsePhone(object.phone),
