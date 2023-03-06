@@ -3,10 +3,9 @@ import {
   DynamoDBDocumentClient,
   PutCommand,
   ScanCommand,
+  DeleteCommand,
 } from "@aws-sdk/lib-dynamodb";
-// import { marshall } from "@aws-sdk/util-dynamodb";
 import dontenv from "dotenv";
-import { tableName } from "./constants";
 dontenv.config();
 
 const dynamoClient = new DynamoDBClient({
@@ -19,15 +18,19 @@ const dynamoClient = new DynamoDBClient({
 
 export const documentClient = DynamoDBDocumentClient.from(dynamoClient);
 
-export const commandPutItem = (data: any) => {
+export const commandPutItem = (tablename: string, data: any) => {
   return new PutCommand({
-    TableName: tableName,
+    TableName: tablename,
     Item: data,
   });
 };
 
-export const commandGetItems = () => {
+export const commandGetItems = (tablename: string) => {
   return new ScanCommand({
-    TableName: tableName,
+    TableName: tablename,
   });
+};
+
+export const deleteCommand = (tablename: string, data: any) => {
+  return new DeleteCommand({ TableName: tablename, Key: data });
 };

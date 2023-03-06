@@ -1,1 +1,2 @@
-export const tableName = "Books";
+export const tableNameBooks = "Books";
+export const tableNameUsers = "User_Books";

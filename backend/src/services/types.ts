@@ -16,3 +16,19 @@ export enum Language {
   English = "EN",
   Spanish = "ES",
 }
+
+export interface User {
+  name: string;
+  document: string;
+  address: string;
+  phone: string;
+}
+
+export interface UserToEdit extends User {
+  id: string;
+}
+
+export type UserToDelete = Omit<
+  UserToEdit,
+  "name" | "document" | "address" | "phone"
+>;
