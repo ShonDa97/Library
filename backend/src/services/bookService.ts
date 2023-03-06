@@ -16,3 +16,17 @@ export const editBook = async (book: BookToEdit) => {
   const bookToEdit = { lend: !lend, ...newBook };
   return await documentClient.send(commandPutItem(tableNameBooks, bookToEdit));
 };
+
+export const getBorrowedBooks = async () => {
+  const borrowedBooks = await documentClient.send(
+    commandGetItems(tableNameBooks, {
+      FilterExpression: "lend = :lend",
+      ExpressionAttributeValues: {
+        ":lend": true,
+      },
+    })
+  );
+  console.log("❗❗ ~ getBorrowedBooks ~ borrowedBooks:", borrowedBooks);
+
+  return borrowedBooks.Items;
+};

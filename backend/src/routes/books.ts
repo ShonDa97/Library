@@ -37,4 +37,13 @@ router.post("/books/lend/user/:userid", async (req, res) => {
   }
 });
 
+router.get("/books/borrowed", async (_req, res) => {
+  try {
+    const borrowedBooks = await bookService.getBorrowedBooks();
+    res.send(borrowedBooks);
+  } catch (error: any) {
+    res.status(400).send(error.message);
+  }
+});
+
 export default router;

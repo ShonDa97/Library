@@ -44,4 +44,14 @@ router.delete("/users/delete", async (req, res) => {
   }
 });
 
+router.get("/users/:userId/books", async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const booksOfUser = await userService.getBooksOfUser(userId);
+    res.send(booksOfUser);
+  } catch (error: any) {
+    res.status(400).send(error.message);
+  }
+});
+
 export default router;

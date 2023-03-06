@@ -4,6 +4,7 @@ import {
   commandPutItem,
   deleteCommand,
   documentClient,
+  queryItems,
 } from "../utils/AWS";
 import { prefixBooks, prefixUsers, tableNameUsers } from "../utils/constants";
 import { BookToLend, User, UserToDelete, UserToEdit } from "./types";
@@ -57,4 +58,22 @@ export const lendBook = async (book: BookToLend, userId: string) => {
     ...newBook,
   };
   return await documentClient.send(commandPutItem(tableNameUsers, bookToLend));
+};
+
+export const getBooksOfUser = async (userId: string) => {
+  const transformId = `${prefixUsers}${userId}`;
+  const { Items } = await documentClient.send(
+    queryItems(tableNameUsers, {
+      KeyConditionExpression: "#pk = :pk and begins_with(#sk, :sk)",
+      ExpressionAttributeNames: {
+        "#pk": "pk",
+        "#sk": "sk",
+      },
+      ExpressionAttributeValues: {
+        ":pk": transformId,
+        ":sk": prefixBooks, // query all users in the organization
+      },
+    })
+  );
+  return Items;
 };
