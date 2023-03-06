@@ -1,12 +1,12 @@
 import express from "express";
 import * as bookService from "../services/bookService";
-import { checkBook } from "../utils/validation";
+import { checkBook } from "../utils/validationBooks";
 
 const router = express.Router();
 
 router.get("/books", async (_req, res) => {
   try {
-    const books = (await bookService.getBooks()).Items;
+    const books = await bookService.getBooks();
     res.send(books);
   } catch (error: any) {
     res.status(400).send(error.message);
