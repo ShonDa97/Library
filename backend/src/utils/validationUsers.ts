@@ -47,7 +47,7 @@ const isPhone = (string: string): boolean => {
 
 export const checkUser = (object: any): User => {
   const newUser: User = {
-    name: parseName(object.name),
+    userName: parseName(object.name),
     document: parseDocument(object.document),
     address: parseAddress(object.address),
     phone: parsePhone(object.phone),
@@ -59,7 +59,7 @@ export const checkUser = (object: any): User => {
 export const checkUserToEdit = (object: any): UserToEdit => {
   const newUser: UserToEdit = {
     id: parseId(object.id),
-    name: parseName(object.name),
+    userName: parseName(object.name),
     document: parseDocument(object.document),
     address: parseAddress(object.address),
     phone: parsePhone(object.phone),

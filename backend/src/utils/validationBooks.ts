@@ -17,7 +17,7 @@ const parseCountry = (countryFromRequest: any): string => {
 
 const parseImageLink = (imageLinkFromRequest: any): string => {
   if (!isValidUrl(imageLinkFromRequest)) {
-    throw new Error("Incorrect or missing link");
+    throw new Error("Incorrect or missing link of image");
   }
 
   return imageLinkFromRequest;
