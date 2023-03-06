@@ -4,6 +4,7 @@ import {
   PutCommand,
   ScanCommand,
   DeleteCommand,
+  QueryCommand,
 } from "@aws-sdk/lib-dynamodb";
 import dontenv from "dotenv";
 dontenv.config();
@@ -25,10 +26,15 @@ export const commandPutItem = (tablename: string, data: any) => {
   });
 };
 
-export const commandGetItems = (tablename: string) => {
+export const commandGetItems = (tablename: string, query?: any) => {
   return new ScanCommand({
     TableName: tablename,
+    ...query,
   });
+};
+
+export const queryItems = (tablename: string, query: any) => {
+  return new QueryCommand({ TableName: tablename, ...query });
 };
 
 export const deleteCommand = (tablename: string, data: any) => {

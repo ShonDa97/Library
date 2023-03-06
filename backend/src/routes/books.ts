@@ -1,5 +1,6 @@
 import express from "express";
 import * as bookService from "../services/bookService";
+import { lendBook } from "../services/userService";
 import { checkBook } from "../utils/validationBooks";
 
 const router = express.Router();
@@ -19,6 +20,17 @@ router.post("/books/add", async (req, res) => {
 
     await bookService.addBook(newBook);
     res.send(newBook);
+  } catch (error: any) {
+    res.status(400).send(error.message);
+  }
+});
+
+router.post("/books/lend/user/:userid", async (req, res) => {
+  try {
+    const { userid } = req.params;
+    const bookToLend = req.body;
+    await bookService.editBook(bookToLend);
+    await lendBook(bookToLend, userid);
   } catch (error: any) {
     res.status(400).send(error.message);
   }

@@ -8,7 +8,11 @@ export interface Book {
   lend: boolean;
 }
 
-export interface UpdateBook extends Book {
+export interface BookToEdit extends Book {
+  id: string;
+}
+
+export interface BookToLend extends Book {
   id: string;
 }
 
@@ -18,7 +22,7 @@ export enum Language {
 }
 
 export interface User {
-  name: string;
+  userName: string;
   document: string;
   address: string;
   phone: string;
@@ -30,5 +34,5 @@ export interface UserToEdit extends User {
 
 export type UserToDelete = Omit<
   UserToEdit,
-  "name" | "document" | "address" | "phone"
+  "userName" | "document" | "address" | "phone"
 >;
