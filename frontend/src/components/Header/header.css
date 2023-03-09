@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+
+}
+
+.home-title {
+  font-family: var(--HOME_TITLE_FONT);
+  font-size: var(--text);
+}
