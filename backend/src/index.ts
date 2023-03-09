@@ -1,8 +1,12 @@
 import express from "express";
 import booksRouter from "./routes/books";
 import usersRouter from "./routes/users";
+import cors from 'cors'
 const app = express();
 
+app.use(cors({
+  origin: 'http://127.0.0.1:5173',
+}));
 app.use(express.json());
 
 const PORT = process.env.PORT || 5031;
