@@ -13,6 +13,11 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    '@typescript-eslint/no-misused-promises': [2, {
+      checksVoidReturn: {
+        attributes: false
+      }
+    }]
   }
 }

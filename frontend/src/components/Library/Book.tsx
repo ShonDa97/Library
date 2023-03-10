@@ -19,6 +19,7 @@ export const Book: React.FC<Props> = ({
         </div>
       </div>
       <div className='book-card-footer'>
+        <p className='title'>{title}</p>
         <p className='author'>{author}</p>
         <p className='country'>{country}</p>
       </div>

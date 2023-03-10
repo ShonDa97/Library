@@ -9,7 +9,7 @@
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
-  border-left: solid #34076564 .2px;
+  border-left: solid #34076564 0.2px;
 }
 
 .sidepanel.open {
@@ -34,10 +34,56 @@
   top: 0;
   right: 25px;
   font-size: 36px;
+  cursor: pointer;
 }
 
-@media (max-width:769px) {
-  .sidepanel {
+.books-form {
+  padding: 40px;
+}
+
+.books-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+input,select{
+  margin: 10px 0;
+  height: 36px;
+  border-radius: 8px;
+  border: solid transparent .2px ;
+  padding-inline-start: 12px;
+  font-weight: 600;
+  color: #d7d7d7;
+}
+select{
+  text-transform: uppercase;
+}
+input::placeholder{
+  text-transform: uppercase;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+.books-form button{
+  width: max-content;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.form-error-message{
+  color: rgba(212, 0, 0, 0.846);
+  padding-inline-start: 13px;
+}
+
+@media (max-width: 769px) {
+  .sidepanel.open {
     width: 100%;
   }
 }
