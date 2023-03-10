@@ -15,4 +15,11 @@ export interface Book {
   lend: boolean
 }
 
+export enum Language {
+  English = 'EN',
+  Spanish = 'ES',
+}
+
 export type ListOfBooks = Book[]
+
+export type AddBook = Omit<Book, 'id'>
