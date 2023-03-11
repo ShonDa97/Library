@@ -2,24 +2,22 @@ import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { type SubmitHandler } from 'react-hook-form/dist/types'
 import { URL_BACKEND } from '../../constants'
-import { useBooks } from '../../hooks/useBooks'
 import { Language, type ListOfBooks, type AddBook } from '../../types'
 import { PlusIcon } from '../Icons/PlusIcon'
 import { ErrorMessage } from './ErrorMessage'
 
 interface Props {
+  books: ListOfBooks
   setBooks: React.Dispatch<React.SetStateAction<ListOfBooks>>
 }
 
-export const Form: React.FC<Props> = ({ setBooks }) => {
+export const Form: React.FC<Props> = ({ setBooks, books }) => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitSuccessful }
   } = useForm<AddBook>()
-
-  const [books] = useBooks()
 
   const onSubmit: SubmitHandler<any> = async (data): Promise<void> => {
     const newBook = { ...data, lend: false }

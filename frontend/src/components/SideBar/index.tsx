@@ -6,15 +6,16 @@ import './SideBar.css'
 interface Props {
   isOpen: boolean
   setIsOpen: () => void
+  books: ListOfBooks
   setBooks: React.Dispatch<React.SetStateAction<ListOfBooks>>
 
 }
 
-export const SideBar: React.FC<Props> = ({ isOpen, setIsOpen, setBooks }) => {
+export const SideBar: React.FC<Props> = ({ isOpen, setIsOpen, setBooks, books }) => {
   return (
     <aside className={`sidepanel ${isOpen ? 'open' : ''}`}>
       <a className="closebtn" onClick={setIsOpen}>×</a>
-      <Form setBooks={setBooks}/>
+      <Form setBooks={setBooks} books={books}/>
     </aside>
   )
 }

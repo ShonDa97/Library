@@ -8,7 +8,7 @@ export const useBooks = (): [
   boolean
 ] => {
   const [books, setBooks] = useState<ListOfBooks>([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const controller = new AbortController()
@@ -17,14 +17,14 @@ export const useBooks = (): [
       .then(async (res) => await res.json())
       .then((json) => {
         setBooks(json)
+        setLoading(false)
       })
       .catch((e) => {
+        setLoading(false)
+
         if (e.message !== 'AbortError') {
           console.log(e)
         }
-      })
-      .finally(() => {
-        setLoading(false)
       })
 
     return () => {

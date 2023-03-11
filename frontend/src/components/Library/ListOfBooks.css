@@ -68,3 +68,9 @@ img {
   font-weight: 300;
   opacity: .7;
 }
+
+.non-message{
+  font-size: var(--text);
+  text-align: center;
+  padding: 20px;
+}
