@@ -32,9 +32,7 @@ export const LendForm: React.FC<Props> = ({
   const onSubmit: SubmitHandler<any> = async (
     data: LendBook
   ): Promise<void> => {
-    const { userName } = data
-
-    fetch(`${URL_BACKEND}/books/lend/user/${userName.id}`, {
+    fetch(`${URL_BACKEND}/books/lend/user/${data.userName}`, {
       method: 'POST',
       body: JSON.stringify(book),
       headers: {
