@@ -6,7 +6,7 @@ This is a project to list books from a library and make the process of lending t
 
 Set environment variables of AWS `SECRET_KEY` and `ACCESS_KEY`
 
-    $ set SECRET_KEY=AccessKeyId && set ACCESS_KEY=SecretAccessKey
+    $ set ACCESS_KEY=AccessKeyId && set SECRET_KEY=SecretAccessKey
 
 In root of project split console with two windows and run:
 
