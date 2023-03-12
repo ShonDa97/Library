@@ -6,9 +6,10 @@ import { ListOfBooks } from './ListOfBooks'
 interface Props {
   books: ListOfBooksType
   isLoading: boolean
+  handleFetch: () => void
 }
 
-export const Library: React.FC<Props> = ({ books, isLoading }) => {
+export const Library: React.FC<Props> = ({ books, isLoading, handleFetch }) => {
   return (
     <section>
       {isLoading
@@ -20,7 +21,7 @@ export const Library: React.FC<Props> = ({ books, isLoading }) => {
         <p className='non-message'>NO HAY LIBROS DISPONIBLES...</p>
             )
           : (
-        <ListOfBooks books={books} />
+        <ListOfBooks books={books} handleFetch={handleFetch} />
             )}
     </section>
   )

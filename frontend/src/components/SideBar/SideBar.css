@@ -5,19 +5,27 @@
   height: 100%;
   top: 0;
   right: 0;
-  background-color: #470458;
+  background-color: #470458ad;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
-  border-left: solid #34076564 0.2px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .sidepanel.open {
+  width: 100%;
+}
+
+.sidepanel-content {
   width: 40vw;
+  border-left: solid #34076564 0.2px;
+  background-color: #470458;
+
 }
 
 .sidepanel a {
-  padding: 8px 8px 8px 32px;
+  padding: 8px 32px 8px 8px;
+  text-align: end;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
@@ -30,8 +38,7 @@
 }
 
 .sidepanel .closebtn {
-  position: absolute;
-  top: 0;
+
   right: 25px;
   font-size: 36px;
   cursor: pointer;
@@ -46,21 +53,25 @@
   flex-direction: column;
 }
 
-input,select{
+input,
+select {
   margin: 10px 0;
   height: 36px;
   border-radius: 8px;
-  border: solid transparent .2px ;
+  border: solid transparent .2px;
   padding-inline-start: 12px;
   font-weight: 600;
   color: #d7d7d7;
 }
-select{
+
+select {
   text-transform: uppercase;
 }
-input::placeholder{
+
+input::placeholder {
   text-transform: uppercase;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -71,16 +82,25 @@ input[type=number] {
   appearance: none;
   -moz-appearance: textfield;
 }
-.books-form button{
+
+.books-form button {
   width: max-content;
   font-weight: 600;
   margin: 8px 0;
 }
 
-.form-error-message{
+.lend-form button {
+  width: max-content;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.form-error-message {
   color: rgba(212, 0, 0, 0.846);
   padding-inline-start: 13px;
 }
+
+
 
 @media (max-width: 769px) {
   .sidepanel.open {

@@ -22,4 +22,20 @@ export enum Language {
 
 export type ListOfBooks = Book[]
 
+export interface LendBook {
+  userName: Pick<User, 'id'>
+}
+
 export type AddBook = Omit<Book, 'id'>
+
+export interface User {
+  id: string
+  userName: string
+  document: string
+  address: string
+  phone: string
+}
+
+export type ListOfUsers = User[]
+
+export type AddUser = Omit<User, 'id'>

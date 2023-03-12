@@ -1,21 +1,18 @@
-import React from 'react'
-import { type ListOfBooks } from '../../types'
-import { Form } from './Form'
 import './SideBar.css'
 
 interface Props {
   isOpen: boolean
   setIsOpen: () => void
-  books: ListOfBooks
-  setBooks: React.Dispatch<React.SetStateAction<ListOfBooks>>
-
+  children: JSX.Element
 }
 
-export const SideBar: React.FC<Props> = ({ isOpen, setIsOpen, setBooks, books }) => {
+export const SideBar: React.FC<Props> = ({ isOpen, setIsOpen, children }) => {
   return (
     <aside className={`sidepanel ${isOpen ? 'open' : ''}`}>
-      <a className="closebtn" onClick={setIsOpen}>×</a>
-      <Form setBooks={setBooks} books={books}/>
+      <div className='sidepanel-content'>
+        <a className='closebtn' onClick={setIsOpen}>×</a>
+        {children}
+      </div>
     </aside>
   )
 }
