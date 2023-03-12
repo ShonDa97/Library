@@ -26,7 +26,6 @@ export const getUsers = async () => {
   const users = Items.map((item: any) => {
     const { pk, ...newItem } = item;
     return { id: pk.substring(prefixUsers.length), ...newItem };
-    0;
   });
   return users;
 };
@@ -43,7 +42,8 @@ export const editUser = async (user: UserToEdit) => {
 };
 
 export const deleteUser = async (user: UserToDelete) => {
-  const userToDelete = { pk: user.id, sk: user.id };
+  const newId = `${prefixUsers}${user.id}`
+  const userToDelete = { pk: newId, sk: newId };
   return await documentClient.send(deleteCommand(tableNameUsers, userToDelete));
 };
 
