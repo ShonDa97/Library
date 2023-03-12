@@ -6,6 +6,8 @@ import { useState } from 'react'
 import { useBooks } from '../hooks/useBooks'
 
 import { Form } from './SideBar/Form'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Stats } from './Stats'
 
 const App = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
@@ -16,6 +18,16 @@ const App = (): JSX.Element => {
   const handleFetch = (): void => {
     setReFetch(true)
   }
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Library books={books} isLoading={loading} handleFetch={handleFetch} />
+    },
+    {
+      path: '/stats',
+      element: <Stats/>
+    }
+  ])
   return (
     <main>
       <div className='container'>
@@ -23,7 +35,8 @@ const App = (): JSX.Element => {
         <SideBar isOpen={isOpen} setIsOpen={handlePanel}>
           <Form handleFetch={handleFetch} />
         </SideBar>
-        <Library books={books} isLoading={loading} handleFetch={handleFetch} />
+        <RouterProvider router={router} />
+
       </div>
     </main>
   )

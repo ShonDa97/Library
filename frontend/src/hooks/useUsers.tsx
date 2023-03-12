@@ -5,10 +5,12 @@ import { type ListOfUsers } from '../types'
 export const useUsers = (): [
   ListOfUsers,
   React.Dispatch<React.SetStateAction<ListOfUsers>>,
-  boolean
+  boolean,
+  React.Dispatch<React.SetStateAction<boolean>>
 ] => {
   const [users, setUsers] = useState<ListOfUsers>([])
   const [loading, setLoading] = useState(true)
+  const [reFetch, setReFetch] = useState(false)
 
   useEffect(() => {
     const controller = new AbortController()
@@ -28,9 +30,11 @@ export const useUsers = (): [
       })
 
     return () => {
+      setReFetch(false)
+
       controller.abort()
     }
-  }, [])
+  }, [reFetch])
 
-  return [users, setUsers, loading]
+  return [users, setUsers, loading, setReFetch]
 }

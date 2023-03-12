@@ -1,0 +1,36 @@
+.user-bar {
+  margin: 40px 0;
+}
+
+table {
+  table-layout: auto;
+  width: 100%;
+  border-spacing: 0;
+  margin: 40px 0;
+}
+
+th,
+td {
+  text-align: start;
+  padding: 10px;
+}
+
+thead {
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background-color: #524657ad;
+}
+
+tr:hover {
+  background-color: #dddddd25;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #2e213bae;
+  color: white;
+}

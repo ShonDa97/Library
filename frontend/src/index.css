@@ -25,6 +25,7 @@
   cursor: pointer;
   padding: 8px 12px;
   color: #d7d7d7;
+  margin-inline: 4px;
 }
 
 .btn:hover {
@@ -35,4 +36,9 @@
 .btn-icon {
   display: flex;
   align-items: center;
+}
+
+a{
+  text-decoration: none;
+  color: #fff;
 }
