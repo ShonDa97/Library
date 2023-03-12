@@ -1,0 +1,22 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "setup": "cd backend && npm i && npm run build && cd .. && cd frontend && npm i",
+    "back": "node backend/build/index.js",
+    "front": "cd frontend && npm run dev "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShonDa97/Library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShonDa97/Library/issues"
+  },
+  "homepage": "https://github.com/ShonDa97/Library#readme"
+}
