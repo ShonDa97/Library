@@ -12,8 +12,8 @@ dontenv.config();
 const dynamoClient = new DynamoDBClient({
   region: "us-east-1",
   credentials: {
-    accessKeyId: process.env.ACCESS_KEY!,
-    secretAccessKey: process.env.SECRET_KEY!,
+    accessKeyId: process.env.ACCESS_KEY!.trim(),
+    secretAccessKey: process.env.SECRET_KEY!.trim(),
   },
 });
 
