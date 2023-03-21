@@ -60,7 +60,7 @@ export const LendForm: React.FC<Props> = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor=''>Select an user to lend this book:</label>
         <select {...register('userName', { required: 'Required Field' })}>
-          <option value=''>Select a Language...</option>
+          <option value=''>Select a User...</option>
           {users.map(({ id, userName }) => (
             <option key={id} value={id}>
               {userName}
